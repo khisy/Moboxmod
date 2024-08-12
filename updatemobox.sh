@@ -9,11 +9,11 @@ apt install -y unzip
 
 if [ ! -e backups ]; then
         mkdir backups
-        cp $PREFIX/etc/bash.bashrc ~/backups
-        cp $PREFIX/glibc/opt/libs/d3d/vkd3d.7z ~/backups
-        cp $PREFIX/glibc/opt/libs/mesa/turnip-v6.5.7z ~/backups
-        cp $PREFIX/glibc/opt/libs/d3d/dxvk-dev.7z ~/backups
-        cp $PREFIX/glibc/bin/box64 ~/backups
+        mv $PREFIX/etc/bash.bashrc ~/backups
+        mv $PREFIX/glibc/opt/libs/d3d/vkd3d.7z ~/backups
+        mv $PREFIX/glibc/opt/libs/mesa/turnip-v5.7z ~/backups
+        mv $PREFIX/glibc/opt/libs/d3d/dxvk-0.96.7z ~/backups
+        mv $PREFIX/glibc/bin/box64 ~/backups
         mv $PREFIX/glibc/wine-9.3-vanilla-wow64 ~/backups/wine-9.3-vanilla-wow64
 fi
 
@@ -42,12 +42,12 @@ unzip vkd3d.zip
 mv x64 system32
 mv x86 syswow64
 7z a vkd3d.7z sys*
-cp vkd3d.7z $PREFIX/glibc/opt/libs/d3d/vkd3d.7z
+mv vkd3d.7z $PREFIX/glibc/opt/libs/d3d/vkd3d.7z
 
 https://github.com/khisy/Moboxmod/releases/download/Moboxmod/turnip.tar.xz
 tar xf turnip.tar.xz
-7z a turnip-5.7z libvulkan_freedreno.so
-mv turnip-5.7z $PREFIX/glibc/opt/libs/mesa/turnip-v5.7z
+7z a turnip-v5.7z libvulkan_freedreno.so
+mv turnip-v5.7z $PREFIX/glibc/opt/libs/mesa/turnip-v5.7z
 rm -rf libvulkan_freedreno.so turnip.tar.xz
 
 wget https://github.com/doitsujin/dxvk/releases/download/v2.4/dxvk-2.4.tar.gz -O dxvk-0.96.tar.gz
@@ -56,7 +56,7 @@ cd dxvk-2.4
 mv x64 system32
 mv x32 syswow64
 7z a dxvk-0.96.7z sys*
-cp dxvk-0.96.7z $PREFIX/glibc/opt/libs/d3d/dxvk-0.96.7z
+mv dxvk-0.96.7z $PREFIX/glibc/opt/libs/d3d/dxvk-0.96.7z
 
 wget https://github.com/khisy/Moboxmod/releases/download/Moboxmod/box64.tar.xz
 tar -xvf box64.tar.xz -C $PREFIX/glibc/bin/
