@@ -44,10 +44,11 @@ mv x86 syswow64
 7z a vkd3d.7z sys*
 cp vkd3d.7z $PREFIX/glibc/opt/libs/d3d/vkd3d.7z
 
-cd
-cd storage/downloads/Telegram/
-mv mesa-turnip* turnip-v6.7z
-cp turnip-5.7z $PREFIX/glibc/opt/libs/mesa/turnip-v5.7z
+https://github.com/khisy/Moboxmod/releases/download/Moboxmod/turnip.tar.xz
+tar xf turnip.tar.xz
+7z a turnip-5.7z libvulkan_freedreno.so
+mv turnip-5.7z $PREFIX/glibc/opt/libs/mesa/turnip-v5.7z
+rm -rf libvulkan_freedreno.so turnip.tar.xz
 
 wget https://github.com/doitsujin/dxvk/releases/download/v2.4/dxvk-2.4.tar.gz -O dxvk-0.96.tar.gz
 tar xf dxvk-0.96.tar.gz
@@ -57,17 +58,16 @@ mv x32 syswow64
 7z a dxvk-0.96.7z sys*
 cp dxvk-0.96.7z $PREFIX/glibc/opt/libs/d3d/dxvk-0.96.7z
 
-cd
-cd storage/downloads/Telegram/
-tar -xvf box64* $PREFIX/glibc/bin/
+wget https://github.com/khisy/Moboxmod/releases/download/Moboxmod/box64.tar.xz
+tar -xvf box64.tar.xz -C $PREFIX/glibc/bin/
+rm -rf box64.tar.xz
 
-cd
-cd storage/downloads/Telegram/
-mv wine* wine.tar.xz
+wget https://github.com/khisy/Moboxmod/releases/download/Moboxmod/wine.tar.xz
 mkdir wine
 tar xf wine.tar.xz -C wine
 mv wine/* wine/wine-9.3-vanilla-wow64
 mv wine/wine-9.3-vanilla-wow64 $PREFIX/glibc/wine-9.3-vanilla-wow64
+rm -rf wine*
 
 cd
 rm -rf vkd3d.tar.zst vkd3d-proton-2.12
