@@ -9,11 +9,11 @@ apt install -y unzip
 
 if [ ! -e backups ]; then
         mkdir backups
-        mv $PREFIX/etc/bash.bashrc ~/backups
-        mv $PREFIX/glibc/opt/libs/d3d/vkd3d.7z ~/backups
-        mv $PREFIX/glibc/opt/libs/mesa/turnip-v5.7z ~/backups
-        mv $PREFIX/glibc/opt/libs/d3d/dxvk-0.96.7z ~/backups
-        mv $PREFIX/glibc/bin/box64 ~/backups
+        cp $PREFIX/etc/bash.bashrc ~/backups
+        cp $PREFIX/glibc/opt/libs/d3d/vkd3d.7z ~/backups
+        cp $PREFIX/glibc/opt/libs/mesa/turnip-v5.7z ~/backups
+        cp $PREFIX/glibc/opt/libs/d3d/dxvk-0.96.7z ~/backups
+        cp $PREFIX/glibc/bin/box64 ~/backups
         mv $PREFIX/glibc/wine-9.3-vanilla-wow64 ~/backups/wine-9.3-vanilla-wow64
 fi
 
