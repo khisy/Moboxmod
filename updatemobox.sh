@@ -70,7 +70,7 @@ mv wine/wine-9.3-vanilla-wow64 $PREFIX/glibc/wine-9.3-vanilla-wow64
 rm -rf wine*
 
 cd
-rm -rf vkd3d.tar.zst vkd3d-proton-2.12
+rm -rf dxvk* setup_vkd3d_proton.sh sys* vkd*
 
 function undo_updater_changes(){
         cd ~/backups
