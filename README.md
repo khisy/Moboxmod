@@ -1,7 +1,5 @@
 Pastikan anda telah menginstall mobox
 - masuk ke termux lalu
 ketik :
-- git clone https://github.com/khisy/Moboxmod.git
-- cd Moboxmod
-- chmod +x *
-- ./moboxmod.sh
+
+wget https://raw.githubusercontent.com/khisy/Moboxmod/main/moboxmod.sh && chmod +x moboxmod.sh && ./moboxmod.sh
