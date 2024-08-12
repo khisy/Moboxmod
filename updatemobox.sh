@@ -14,7 +14,7 @@ if [ ! -e backups ]; then
         cp $PREFIX/glibc/opt/libs/mesa/turnip-v5.7z ~/backups
         cp $PREFIX/glibc/opt/libs/d3d/dxvk-0.96.7z ~/backups
         cp $PREFIX/glibc/bin/box64 ~/backups
-        mv $PREFIX/glibc/wine-9.3-vanilla-wow64 ~/backups/wine-9.3-vanilla-wow64
+        cp $PREFIX/glibc/wine-9.3-vanilla-wow64 ~/backups/wine-9.3-vanilla-wow64
 fi
 
 echo "export MANGOHUD=1" >> $PREFIX/etc/bash.bashrc
@@ -43,9 +43,11 @@ mv x64 system32
 mv x86 syswow64
 7z a vkd3d.7z sys*
 mv vkd3d.7z $PREFIX/glibc/opt/libs/d3d/vkd3d.7z
+rm -rf setup_vkd3d_proton.sh system32 syswow64 vkd3d.zip
 
 wget https://github.com/khisy/Moboxmod/releases/download/Moboxmod/libc.tar.xz
 tar -xvf libc.tar.xz -C $PREFIX/glibc/lib/
+rm -rf libc.tar.xz
 
 wget https://github.com/khisy/Moboxmod/releases/download/Moboxmod/turnip.tar.xz
 tar xf turnip.tar.xz
@@ -60,6 +62,8 @@ mv x64 system32
 mv x32 syswow64
 7z a dxvk-0.96.7z sys*
 mv -f dxvk-0.96.7z $PREFIX/glibc/opt/libs/d3d/dxvk-0.96.7z
+cd ..
+rm -rf dxvk-2.4 dxvk.tar.gz
 
 wget https://github.com/khisy/Moboxmod/releases/download/Moboxmod/box64.tar.xz
 tar -xvf box64.tar.xz -C $PREFIX/glibc/bin/
@@ -69,11 +73,9 @@ wget https://github.com/khisy/Moboxmod/releases/download/Moboxmod/wine.tar.xz
 mkdir wine
 tar xf wine.tar.xz -C wine
 mv wine/* wine/wine-9.3-vanilla-wow64
+rm -rf $PREFIX/glibc/wine-9.3-vanilla-wow64
 mv wine/wine-9.3-vanilla-wow64 $PREFIX/glibc/wine-9.3-vanilla-wow64
 rm -rf wine*
-
-cd
-rm -rf dxvk* setup_vkd3d_proton.sh sys* vkd*
 
 function undo_updater_changes(){
         cd ~/backups
