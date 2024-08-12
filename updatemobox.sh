@@ -44,14 +44,17 @@ mv x86 syswow64
 7z a vkd3d.7z sys*
 mv vkd3d.7z $PREFIX/glibc/opt/libs/d3d/vkd3d.7z
 
-https://github.com/khisy/Moboxmod/releases/download/Moboxmod/turnip.tar.xz
+wget https://github.com/khisy/Moboxmod/releases/download/Moboxmod/libc.tar.xz
+tar -xvf libc.tar.xz -C $PREFIX/glibc/lib/
+
+wget https://github.com/khisy/Moboxmod/releases/download/Moboxmod/turnip.tar.xz
 tar xf turnip.tar.xz
 7z a turnip-v5.7z libvulkan_freedreno.so
 mv -f turnip-v5.7z $PREFIX/glibc/opt/libs/mesa/turnip-v5.7z
 rm -rf libvulkan_freedreno.so turnip.tar.xz
 
-wget https://github.com/doitsujin/dxvk/releases/download/v2.4/dxvk-2.4.tar.gz -O dxvk-0.96.tar.gz
-tar xf dxvk-0.96.tar.gz
+wget https://github.com/khisy/Moboxmod/releases/download/Moboxmod/dxvk.tar.gz
+tar xf dxvk.tar.gz
 cd dxvk-2.4
 mv x64 system32
 mv x32 syswow64
