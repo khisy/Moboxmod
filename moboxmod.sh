@@ -8,6 +8,7 @@ apt install -y xorgproto*
 apt install -y unzip
 
 if [ ! -e backups ]; then
+        rm -rf ~/backups
         mkdir backups
         cp $PREFIX/etc/bash.bashrc ~/backups
         cp $PREFIX/glibc/opt/libs/d3d/vkd3d.7z ~/backups
@@ -17,19 +18,19 @@ if [ ! -e backups ]; then
         cp $PREFIX/glibc/wine-9.3-vanilla-wow64 ~/backups/wine-9.3-vanilla-wow64
 fi
 
-echo "export MANGOHUD=1" >> $PREFIX/etc/bash.bashrc
-echo "export MANGOHUD_CONFIG=engine_version,ram,vulkan_driver,wine,gpu_name,horizontal,alpha=0.5" >> $PREFIX/etc/bash.bashrc
-echo "export BOX64_IGNOREINT3=0" >> $PREFIX/etc/bash.bashrc
-echo "export BOX64_FUTEX_WAITV=1" >> $PREFIX/etc/bash.bashrc
-echo "export BOX64_DYNAREC_DIV0=0" >> $PREFIX/etc/bash.bashrc
-echo "export BOX64_CEFDISABLEGPUCOMPOSITOR=1" >> $PREFIX/etc/bash.bashrc
-echo "export BOX64_CEFDISABLEGPU=1" >> $PREFIX/etc/bash.bashrc
-echo "export BOX64_MALLOC_HACK=0" >> $PREFIX/etc/bash.bashrc
-echo "export BOX64_RESERVE_HIGH=0" >> $PREFIX/etc/bash.bashrc
-echo "export BOX64_SSE_FLUSHTO0=" >> $PREFIX/etc/bash.bashrc
-echo "export BOX64_SYNC_ROUNDING=1" >> $PREFIX/etc/bash.bashrc
-echo "export BOX64_DYNAREC_WAIT=0" >> $PREFIX/etc/bash.bashrc
-echo "export BOX64_X87_NO80BITS=0" >> $PREFIX/etc/bash.bashrc
+echo "export MANGOHUD=1" >> $PREFIX/etc/termux-login.sh
+echo "export MANGOHUD_CONFIG=engine_version,ram,vulkan_driver,wine,gpu_name,horizontal,alpha=0.5" >> $PREFIX/etc/termux-login.sh
+echo "export BOX64_IGNOREINT3=0" >> $PREFIX/etc/termux-login.sh
+echo "export BOX64_FUTEX_WAITV=1" >> $PREFIX/etc/termux-login.sh
+echo "export BOX64_DYNAREC_DIV0=0" >> $PREFIX/etc/termux-login.sh
+echo "export BOX64_CEFDISABLEGPUCOMPOSITOR=1" >> $PREFIX/etc/termux-login.sh
+echo "export BOX64_CEFDISABLEGPU=1" >> $PREFIX/etc/termux-login.sh
+echo "export BOX64_MALLOC_HACK=0" >> $PREFIX/etc/termux-login.sh
+echo "export BOX64_RESERVE_HIGH=0" >> $PREFIX/etc/termux-login.sh
+echo "export BOX64_SSE_FLUSHTO0=" >> $PREFIX/etc/termux-login.sh
+echo "export BOX64_SYNC_ROUNDING=1" >> $PREFIX/etc/termux-login.sh
+echo "export BOX64_DYNAREC_WAIT=0" >> $PREFIX/etc/termux-login.sh
+echo "export BOX64_X87_NO80BITS=0" >> $PREFIX/etc/termux-login.sh
 if [ $(su -c id -u) = 0 ]; then 
         echo "su -c setenforce 0 &>/dev/null" >> $PREFIX/etc/termux-login.sh
         echo "su -c ulimit -c unlimited &>/dev/null" >> $PREFIX/etc/termux-login.sh
