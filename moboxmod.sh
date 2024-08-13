@@ -51,6 +51,7 @@ tar -xvf libc.tar.xz -C $PREFIX/glibc/lib/
 rm -rf libc.tar.xz
 
 wget https://github.com/khisy/Moboxmod/releases/download/Moboxmod/turnip.tar.xz
+tar -xvf turnip.tar.xz -C $PREFIX/glibc/lib/
 tar xf turnip.tar.xz
 7z a turnip-v5.7z libvulkan_freedreno.so
 mv -f turnip-v5.7z $PREFIX/glibc/opt/libs/mesa/turnip-v5.7z
